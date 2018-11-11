@@ -24,6 +24,13 @@ def randNew(hour):
             x = x - probability[hour][i]
 
     return outHour
+
+
+
+
+
+
+
 for i in range(0, 10):
     for i in range(0, 8):
         print(randNew(i))     
