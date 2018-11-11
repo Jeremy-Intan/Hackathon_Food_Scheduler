@@ -6,6 +6,7 @@ def timeNow():
     day = datetime.date.today().day
     weekday = datetime.date.today().weekday()
     hours = datetime.datetime.now().hour
-    time = [[month/12, day/31, weekday/7, hours/24]]
+    time = [[month, day, weekday + 1, hours]]
     return time
-print(timeNow())
+
+#print(timeNow())
