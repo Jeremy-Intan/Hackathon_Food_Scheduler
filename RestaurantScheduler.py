@@ -1,10 +1,19 @@
+import pickle
 import Predict
 import pandas as pd
-import pickle
 
-training_input = pd.read_csv("datas_in.csv", header = 0, index_col = 0)
-training_output = pd.read_csv("datas_out.csv", header = 0, index_col = 0)
+nn = pickle.load(open("nn.pickle", "rb"))
 
-nn = Predict.training(training_input, training_output)
-pickle.dump(nn, open("nn.pickle", "wb"))
-#print(Predict.predict(nn, training_input[0:1]))
+month = float(input("What month?"))/12
+date = float(input("What date?"))/31
+day = float(input("What day?"))/7
+hour = float(input("What hour?"))/24
+lat = float(input("What lat?"))/180
+lng = float(input("What lng?"))/360
+
+df_in = pd.DataFrame([[month, date, day, hour, lat, lng]])
+
+#print(df_in)
+print(Predict.predict(nn, df_in))
+
+
